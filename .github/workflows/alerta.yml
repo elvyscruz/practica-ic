@@ -15,6 +15,6 @@ jobs:
           curl -X POST \
           -H "Title: Cambio en repositorio" \
           -H "Priority: 4" \
-          -d "El usuario de github ${{ github.actor }} ha subido cambios al repositorio" \
+          -d "El usuario de github ${{ github.actor }} ha subido cambios al repositorio. Ver commit: ${{ github.event.head_commit.url }} " \
           https://ntfy.sh/devops-itla
 
