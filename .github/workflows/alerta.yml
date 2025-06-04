@@ -1,0 +1,20 @@
+name: Alerta de cambios en main
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  enviar-alerta:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Enviar POST a ntfy.sh
+        run: |
+          curl -X POST \
+          -H "Title: Cambio en repositorio" \
+          -H "Priority: 4" \
+          -d "El usuario de github ${{ github.actor }} ha subido cambios al repositorio" \
+          https://ntfy.sh/devops-itla
+
